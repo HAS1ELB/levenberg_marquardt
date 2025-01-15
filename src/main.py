@@ -1,3 +1,7 @@
+import sys
+import os
+# Ajouter le dossier racine du projet au chemin d'exécution
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
 from levenberg_marquardt import levenberg_marquardt
 from utils import (
     generate_synthetic_data,
@@ -25,11 +29,16 @@ def func(x, t, model_type="exponential"):
     if model_type == "exponential":
         return x[0] * np.exp(-x[1] * t)
     elif model_type == "polynomial":
+        if len(x) < 3:
+            raise ValueError("Le modèle polynomial nécessite au moins 3 paramètres.")
         return x[0] + x[1] * t + x[2] * t**2
     elif model_type == "sinusoidal":
+        if len(x) < 3:
+            raise ValueError("Le modèle sinusoidal nécessite au moins 3 paramètres.")
         return x[0] * np.sin(x[1] * t + x[2])
     else:
         raise ValueError(f"Modèle {model_type} non supporté.")
+
 
 
 # Définition de la matrice Jacobienne

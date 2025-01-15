@@ -18,7 +18,6 @@ def generate_synthetic_data(model_func, params, t, noise_std=0.1):
     noise = np.random.normal(0, noise_std, len(t))
     return y_clean + noise
 
-
 def plot_results(t, y_data, y_true, y_pred, title="Ajustement des données"):
     """
     Trace les données brutes, le modèle réel, et le modèle ajusté.
@@ -31,18 +30,19 @@ def plot_results(t, y_data, y_true, y_pred, title="Ajustement des données"):
         title: Titre du graphique.
 
     Returns:
-        None
+        matplotlib.figure.Figure: La figure contenant le graphique.
     """
-    plt.figure(figsize=(8, 6))
-    plt.scatter(t, y_data, label="Données avec bruit", color="red", s=10)
-    plt.plot(t, y_true, label="Modèle réel", color="green", linewidth=2)
-    plt.plot(t, y_pred, label="Modèle ajusté", color="blue", linestyle="--")
-    plt.xlabel("Temps (t)")
-    plt.ylabel("Valeurs (y)")
-    plt.title(title)
-    plt.legend()
-    plt.grid()
-    plt.show()
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.scatter(t, y_data, label="Données avec bruit", color="red", s=10)
+    ax.plot(t, y_true, label="Modèle réel", color="green", linewidth=2)
+    ax.plot(t, y_pred, label="Modèle ajusté", color="blue", linestyle="--")
+    ax.set_xlabel("Temps (t)")
+    ax.set_ylabel("Valeurs (y)")
+    ax.set_title(title)
+    ax.legend()
+    ax.grid()
+    return fig
+
 
 
 def calculate_residuals(y_data, y_pred):

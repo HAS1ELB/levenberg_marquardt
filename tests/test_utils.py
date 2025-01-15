@@ -1,6 +1,9 @@
 import unittest
 import numpy as np
-
+import sys
+import os
+# Ajouter le dossier racine du projet au chemin d'exécution
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
 from src.utils import (
     generate_synthetic_data,
     mean_squared_error,
