@@ -12,6 +12,13 @@ Ce projet implémente l'algorithme **Levenberg-Marquardt** pour l'ajustement non
 
 ---
 
+## 🌐 Déploiement
+
+L'application est déployée et accessible à l'adresse suivante :
+**[has1elb-levenb](https://has1elb-levenberg-marquardt-srcgui-xcztj3.streamlit.app/)erg-marquardt app**
+
+---
+
 ## 📂 Structure du projet
 
 ```
@@ -46,7 +53,7 @@ has1elb-levenberg_marquardt/
 
 1. Clonez ce repository :
    ```bash
-   git clone https://github.com/has1elb/levenberg-marquardt-project.git
+   git clone https://github.com/votre-utilisateur/levenberg-marquardt-project.git
    ```
 2. Accédez au dossier :
    ```bash
@@ -99,7 +106,13 @@ pytest tests/
 - **EL BAHRAOUI HASSAN**
 - **EL BACHAR WALID**
 - **DEHBI KAMAL**
-- **MALEK SAMI**
+- **SAMI MALEK**
+
+---
+
+## 📝 Licence
+
+Ce projet est sous licence **MIT**. Vous êtes libre de l'utiliser et de le modifier tant que cette mention est conservée.
 
 ---
 
