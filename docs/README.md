@@ -110,12 +110,6 @@ pytest tests/
 
 ---
 
-## 📝 Licence
-
-Ce projet est sous licence **MIT**. Vous êtes libre de l'utiliser et de le modifier tant que cette mention est conservée.
-
----
-
 ## 🌍 Connectez avec nous
 
 Contributions, questions et suggestions sont les bienvenues ! 🎉
