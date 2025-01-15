@@ -15,7 +15,7 @@ Ce projet implémente l'algorithme **Levenberg-Marquardt** pour l'ajustement non
 ## 🌐 Déploiement
 
 L'application est déployée et accessible à l'adresse suivante :
-**[has1elb-levenb](https://has1elb-levenberg-marquardt-srcgui-xcztj3.streamlit.app/)erg-marquardt app**
+**[has1elb-levenberg-marquardt app](https://has1elb-levenberg-marquardt-srcgui-xcztj3.streamlit.app/)**
 
 ---
 
