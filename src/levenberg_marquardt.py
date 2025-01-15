@@ -1,0 +1,56 @@
+import numpy as np
+
+
+def levenberg_marquardt(func, jacobian, x0, t, y_data, max_iter=100, tol=1e-6, lambda_init=0.01):
+    """
+    Implémentation de la méthode de Levenberg-Marquardt pour l'ajustement non linéaire.
+
+    Parameters:
+        func: Fonction modèle. Prend x (paramètres) et t (données indépendantes) comme entrées.
+        jacobian: Fonction qui calcule la matrice Jacobienne. Prend x et t comme entrées.
+        x0: Liste ou tableau des paramètres initiaux.
+        t: Données indépendantes (ex : temps).
+        y_data: Données observées à ajuster.
+        max_iter: Nombre maximal d'itérations.
+        tol: Tolérance pour la convergence (sur la norme de la mise à jour des paramètres).
+        lambda_init: Facteur d'amortissement initial.
+
+    Returns:
+        np.ndarray: Paramètres optimisés.
+    """
+    # Initialisation des paramètres
+    x = np.array(x0, dtype=float)
+    lambda_param = lambda_init  # Facteur d'amortissement (lambda)
+
+    for iteration in range(max_iter):
+        # Calcul des résidus (différence entre les données et le modèle)
+        residuals = y_data - func(x, t)
+
+        # Calcul de la matrice Jacobienne
+        J = jacobian(x, t)
+
+        # Construction des matrices H et g
+        H = J.T @ J + lambda_param * np.eye(J.shape[1])  # H = J^T * J + λ * I
+        g = J.T @ residuals  # g = J^T * r
+
+        # Résolution du système pour la mise à jour des paramètres
+        delta_x = np.linalg.solve(H, g)
+        x_new = x + delta_x
+
+        # Vérification de convergence
+        if np.linalg.norm(delta_x) < tol:
+            print(f"Convergence atteinte à l'itération {iteration}.")
+            return x_new
+
+        # Évaluation des résidus avec les nouveaux paramètres
+        new_residuals = y_data - func(x_new, t)
+
+        # Mise à jour de lambda : Réduction si amélioration, sinon augmentation
+        if np.linalg.norm(new_residuals) < np.linalg.norm(residuals):
+            lambda_param /= 10  # Réduction du facteur d'amortissement
+            x = x_new  # Mise à jour des paramètres
+        else:
+            lambda_param *= 10  # Augmentation du facteur d'amortissement
+
+    print("Maximum d'itérations atteint. Retour des derniers paramètres.")
+    return x
