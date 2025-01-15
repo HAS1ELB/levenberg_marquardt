@@ -2,8 +2,8 @@ import sys
 import os
 # Ajouter le dossier racine du projet au chemin d'exécution
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
-from levenberg_marquardt import levenberg_marquardt
-from utils import (
+from .levenberg_marquardt import levenberg_marquardt
+from .utils import (
     generate_synthetic_data,
     plot_results,
     mean_squared_error,

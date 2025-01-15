@@ -1,87 +1,108 @@
+# Levenberg-Marquardt Project 🚀
 
-# Levenberg-Marquardt Project
+Ce projet implémente l'algorithme **Levenberg-Marquardt** pour l'ajustement non linéaire des courbes, une méthode robuste et rapide utilisée dans de nombreux domaines scientifiques et d'ingénierie.
 
-Ce projet implémente l'algorithme de **Levenberg-Marquardt** pour l'ajustement non linéaire des courbes. Il inclut un script principal pour exécuter l'algorithme, des fonctions auxiliaires pour générer des données et afficher les résultats, ainsi que des tests unitaires pour assurer la robustesse du code.
+---
 
-## Structure du Projet
+## 🌟 Fonctionnalités principales
 
-Le projet est organisé de la manière suivante :
+- **Optimisation non linéaire** : Implémentation complète de l'algorithme pour ajuster des modèles complexes.
+- **Visualisation des résultats** : Graphiques interactifs pour mieux comprendre les ajustements.
+- **Tests unitaires** : Garantir la robustesse et la fiabilité du code.
+
+---
+
+## 📂 Structure du projet
 
 ```
-levenberg-marquardt-project/
-│
-├── src/
-│   ├── main.py               # Script principal pour exécuter l'algorithme.
-│   ├── levenberg_marquardt.py  # Algorithme principal.
-│   ├── utils.py              # Fonctions auxiliaires (optionnelles).
-│   └── __init__.py           # Indique que c'est un package.
-│
-├── tests/
-│   ├── test_algorithm.py     # Tests pour l'algorithme.
-│   └── test_utils.py         # Tests pour les fonctions utilitaires.
-│
-├── docs/
-│   ├── README.md             # Documentation du projet.
-│   └── algorithm_details.md  # Détails théoriques.
-│
-├── requirements.txt          # Liste des dépendances.
-└── .vscode/
-    └── launch.json           # Configuration pour le débogage dans VSCode.
+has1elb-levenberg_marquardt/
+├── docs/                 # Documentation et théorie
+│   ├── README.md         # Documentation principale
+│   └── algorithm_details.md  # Explications théoriques de l'algorithme
+├── src/                  # Code source
+│   ├── main.py           # Script principal
+│   ├── gui.py            # Interface utilisateur
+│   ├── utils.py          # Fonctions utilitaires
+│   ├── levenberg_marquardt.py # Algorithme principal
+│   └── __init__.py
+├── tests/                # Tests unitaires
+│   ├── test_algorithm.py # Tests pour l'algorithme
+│   ├── test_utils.py     # Tests pour les utilitaires
+│   └── __init__.py
+├── requirements.txt      # Dépendances nécessaires
+└── .vscode/              # Configuration VSCode
 ```
 
-## Installation
+---
+
+## ⚙️ Installation
 
 ### Prérequis
 
-Avant de commencer, assurez-vous d'avoir installé **Python 3.x** et **pip** sur votre machine.
+- Python 3.x
+- pip
 
-### Étapes d'installation
+### Étapes
 
-1. Clonez ce repository sur votre machine locale :
-    ```bash
-    git clone https://github.com/votre-utilisateur/levenberg-marquardt-project.git
-    ```
-2. Accédez au répertoire du projet :
-    ```bash
-    cd levenberg-marquardt-project
-    ```
+1. Clonez ce repository :
+   ```bash
+   git clone https://github.com/has1elb/levenberg-marquardt-project.git
+   ```
+2. Accédez au dossier :
+   ```bash
+   cd levenberg-marquardt-project
+   ```
 3. Installez les dépendances :
-    ```bash
-    pip install -r requirements.txt
-    ```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Utilisation
+---
 
-### Exécution du script principal
+## 🛠️ Utilisation
 
-Le script `main.py` contient l'exécution de l'algorithme. Vous pouvez l'exécuter directement en ligne de commande pour ajuster un modèle avec des données synthétiques :
+### Exécution principale
+
+Lancez le script principal pour voir l'algorithme en action :
 
 ```bash
 python src/main.py
 ```
 
-Le programme générera des données avec bruit, ajustera un modèle en utilisant l'algorithme de Levenberg-Marquardt, et affichera les résultats.
+### Interface utilisateur
+
+Utilisez une interface interactive avec **Streamlit** :
+
+```bash
+streamlit run src/gui.py
+```
 
 ### Tests
 
-Le projet comprend des tests unitaires pour vérifier l'exactitude de l'algorithme et des fonctions utilitaires. Vous pouvez exécuter les tests avec **pytest** :
+Vérifiez l'intégrité du code avec **pytest** :
 
 ```bash
 pytest tests/
 ```
 
-### Documentation
+---
 
-La documentation théorique sur la méthode de Levenberg-Marquardt se trouve dans le fichier `docs/algorithm_details.md`. Ce fichier détaille les principes mathématiques et les étapes de l'algorithme.
+## 📖 Documentation
 
-## Débogage dans VSCode
+- **Détails théoriques** : [algorithm_details.md](docs/algorithm_details.md)
+- **Structure et guide** : Ce fichier README.
 
-Le projet inclut une configuration de débogage pour VSCode. Pour l'utiliser, ouvrez le projet dans VSCode et lancez le débogueur avec la configuration présente dans le fichier `.vscode/launch.json`.
+---
 
-## Contributeurs
+## 👥 Contributeurs
 
-- **Votre nom** : Développeur principal.
+- **EL BAHRAOUI HASSAN**
+- **EL BACHAR WALID**
+- **DEHBI KAMAL**
+- **MALEK SAMI**
 
-## Licence
+---
 
-Ce projet est sous licence **MIT**. Vous pouvez librement utiliser et modifier ce code, à condition de conserver cette mention.
+## 🌍 Connectez avec nous
+
+Contributions, questions et suggestions sont les bienvenues ! 🎉

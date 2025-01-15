@@ -9,7 +9,7 @@ from src.utils import generate_synthetic_data, plot_results, mean_squared_error
 from src.main import func, jacobian
 
 # Titre de l'application
-st.title("Interface Levenberg-Marquardt")
+st.title("Levenberg Marquardt")
 
 # Ajouter un onglet pour la documentation
 tab1, tab2, tab3 = st.tabs(["Algorithme", "Documentation", "Détails Théoriques"])

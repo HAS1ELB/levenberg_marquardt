@@ -9,15 +9,42 @@ import matplotlib.pyplot as plt
 
 
 # Fonction modèle et jacobienne pour les tests
-def func(x, t):
-    return x[0] * np.exp(-x[1] * t)
+def func(x, t, model_type="exponential"):
+    """
+    Modèle de la fonction à ajuster.
+    """
+    if model_type == "exponential":
+        return x[0] * np.exp(-x[1] * t)
+    elif model_type == "polynomial":
+        return x[0] + x[1] * t + x[2] * t**2
+    elif model_type == "sinusoidal":
+        return x[0] * np.sin(x[1] * t + x[2])
+    else:
+        raise ValueError(f"Modèle {model_type} non supporté.")
 
 
-def jacobian(x, t):
-    J = np.zeros((len(t), len(x)))
-    J[:, 0] = np.exp(-x[1] * t)
-    J[:, 1] = -x[0] * t * np.exp(-x[1] * t)
-    return J
+def jacobian(x, t, model_type="exponential"):
+    """
+    Calcul de la matrice Jacobienne de la fonction modèle.
+    """
+    if model_type == "exponential":
+        J = np.zeros((len(t), len(x)))
+        J[:, 0] = np.exp(-x[1] * t)
+        J[:, 1] = -x[0] * t * np.exp(-x[1] * t)
+        return J
+    elif model_type == "polynomial":
+        J = np.ones((len(t), len(x)))
+        J[:, 1] = t
+        J[:, 2] = t**2
+        return J
+    elif model_type == "sinusoidal":
+        J = np.zeros((len(t), len(x)))
+        J[:, 0] = np.sin(x[1] * t + x[2])
+        J[:, 1] = x[0] * t * np.cos(x[1] * t + x[2])
+        J[:, 2] = x[0] * np.cos(x[1] * t + x[2])
+        return J
+    else:
+        raise ValueError(f"Modèle {model_type} non supporté.")
 
 
 class TestLevenbergMarquardt(unittest.TestCase):
